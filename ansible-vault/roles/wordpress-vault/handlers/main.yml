@@ -1,0 +1,7 @@
+---
+# handlers file for wordpress
+- name: web
+  systemd:
+    name: httpd
+    state: restarted
+

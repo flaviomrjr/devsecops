@@ -1,0 +1,17 @@
+- name: Iniciando Banco
+  systemd:
+    name: mariadb
+    state: restarted
+
+- name: Criando Data Base
+  mysql_db:
+    name: wordpress
+    state: present
+
+- name: Criando Usuario no Banco
+  mysql_user:
+    name: wordpress
+    password: "{{ pass_db }}"
+    priv: '*.*:ALL,GRANT'
+    state: present
+

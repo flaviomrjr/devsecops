@@ -1,0 +1,14 @@
+- name: Garantindo EPEL-RELEASE
+  yum:
+    name: epel-release
+    state: present
+
+- name: Instalando Apache + PHP e Outros
+  package: 
+    name: ['php','php-gd','php-mysql','httpd','python-pip','MySQL-python']
+    state: present
+
+- name: Instalando o Banco de Dados
+  package:
+    name: ['mariadb','mariadb-server']
+    state: present

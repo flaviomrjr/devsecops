@@ -1,0 +1,9 @@
+---
+# tasks file for wordpress
+- include: dependencias.yml
+  when: ansible_distribution == "CentOS"
+- include: conf_banco.yml
+  when: ansible_distribution == "CentOS"
+- include: deploy.yml
+  when: ansible_distribution == "CentOS"
+

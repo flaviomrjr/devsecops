@@ -1,0 +1,16 @@
+- name: Baixando Wordpress
+  get_url:
+    url: https://br.wordpress.org/wordpress-5.1.1-pt_BR.tar.gz
+    dest: /tmp/wordpress.tar.gz
+
+- name: Descompactando Wordpress
+  unarchive:
+    src: /tmp/wordpress.tar.gz
+    dest: /var/www/html
+    remote_src: yes
+
+- name: Garantindo Arquivo WP-CONFIG
+  template:
+    src: wp-config.php
+    dest: /var/www/html/wordpress/
+  notify: web
