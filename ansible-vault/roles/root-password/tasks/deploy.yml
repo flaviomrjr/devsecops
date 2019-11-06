@@ -1,0 +1,6 @@
+- name: Reset Root Password
+  user:
+    name: root
+    password: "{{ password }}"
+  tags: [ senha ]
+  
