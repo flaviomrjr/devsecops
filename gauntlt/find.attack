@@ -1,0 +1,11 @@
+Feature: Simple FIND attack
+Scenario:
+  When I launch a "generic" attack with:
+  """
+  su - vagrant -c 'find / -writable -type d 2> /dev/null'
+  """
+  And the default aruba timeout is 30 seconds
+  Then the output should not contain:
+  """
+  /root
+  """
